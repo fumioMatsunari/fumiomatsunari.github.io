@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | ポートフォリオ</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#075985',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .filter-btn.active {
+            background-color: #0284c7;
+            color: #ffffff;
+        }
+        .dark .filter-btn.active {
+            background-color: #38bdf8;
+            color: #0f172a;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col antialiased">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 dark:border-slate-50/10 bg-white/75 dark:bg-slate-900/75">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="#" class="font-bold text-xl tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
+                <i data-lucide="code-2" class="text-brand-500"></i>
+                <span>DevPortfolio</span>
+            </a>
+            <div class="flex items-center gap-6">
+                <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+                    <a href="#about" class="hover:text-brand-500 transition-colors">About</a>
+                    <a href="#skills" class="hover:text-brand-500 transition-colors">Skills</a>
+                    <a href="#works" class="hover:text-brand-500 transition-colors">Works</a>
+                    <a href="#contact" class="hover:text-brand-500 transition-colors">Contact</a>
+                </nav>
+                <!-- Dark Mode Toggle Button -->
+                <button id="theme-toggle" aria-label="Toggle Theme" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-brand-500 transition-colors">
+                    <i data-lucide="sun" id="theme-toggle-light-icon" class="hidden w-5 h-5"></i>
+                    <i data-lucide="moon" id="theme-toggle-dark-icon" class="hidden w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-24">
+
+        <!-- Hero Section -->
+        <section id="about" class="pt-8 md:pt-16 flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+            <div class="space-y-6 text-center md:text-left md:w-2/3">
+                <div class="inline-block px-3 py-1 rounded-full bg-brand-50 dark:bg-slate-800 text-brand-600 dark:text-brand-500 text-sm font-semibold tracking-wide">
+                    👋 Welcome to my portfolio
+                </div>
+                <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
+                    モノづくりとコードで<br class="hidden sm:inline" />新しい体験を届ける。
+                </h1>
+                <p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
+                    Pythonでのデータ処理、JavaScriptによるインタラクティブなWebアプリ、グラフィックデザインまで幅広く制作しています。これまでに作った作品やプロジェクトをここにまとめました。
+                </p>
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2">
+                    <a href="#works" class="px-6 py-3 rounded-lg bg-brand-500 hover:bg-brand-600 text-white font-medium transition-colors shadow-lg shadow-brand-500/25 flex items-center gap-2">
+                        <i data-lucide="folder-git-2" class="w-4 h-4"></i> 作品を見る
+                    </a>
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-lg bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 font-medium transition-colors flex items-center gap-2">
+                        <i data-lucide="github" class="w-4 h-4"></i> GitHub Profile
+                    </a>
+                </div>
+            </div>
+            <!-- Profile Avatar / Image Placeholder -->
+            <div class="relative w-48 h-48 sm:w-64 sm:h-64 rounded-full overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl bg-gradient-to-tr from-brand-500 to-indigo-500 flex items-center justify-center text-white text-6xl font-bold">
+                <!-- 画像を差し替える場合は <img> タグに変更してください -->
+                <span>Dev</span>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="space-y-8">
+            <div class="text-center space-y-2">
+                <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Skills & Tools</h2>
+                <p class="text-slate-500 dark:text-slate-400">使用している技術スタックとツール</p>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                <div class="p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/50 shadow-sm flex items-center gap-3">
+                    <i data-lucide="code" class="text-brand-500 w-6 h-6"></i>
+                    <div>
+                        <div class="font-semibold text-sm">JavaScript / HTML5</div>
+                        <div class="text-xs text-slate-500">Web Front-end</div>
+                    </div>
+                </div>
+                <div class="p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/50 shadow-sm flex items-center gap-3">
+                    <i data-lucide="terminal" class="text-brand-500 w-6 h-6"></i>
+                    <div>
+                        <div class="font-semibold text-sm">Python</div>
+                        <div class="text-xs text-slate-500">Data / Automation</div>
+                    </div>
+                </div>
+                <div class="p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/50 shadow-sm flex items-center gap-3">
+                    <i data-lucide="git-branch" class="text-brand-500 w-6 h-6"></i>
+                    <div>
+                        <div class="font-semibold text-sm">Git / GitHub</div>
+                        <div class="text-xs text-slate-500">Version Control</div>
+                    </div>
+                </div>
+                <div class="p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/50 shadow-sm flex items-center gap-3">
+                    <i data-lucide="palette" class="text-brand-500 w-6 h-6"></i>
+                    <div>
+                        <div class="font-semibold text-sm">UI/UX Design</div>
+                        <div class="text-xs text-slate-500">Canva / Figma</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Works Section -->
+        <section id="works" class="space-y-8">
+            <div class="text-center space-y-2">
+                <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Featured Works</h2>
+                <p class="text-slate-500 dark:text-slate-400">これまでに作成したアプリやグラフィック作品</p>
+            </div>
+
+            <!-- Category Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-2">
+                <button class="filter-btn active px-4 py-2 rounded-full text-sm font-medium bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-brand-500 hover:text-white transition-all" data-filter="all">All</button>
+                <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-brand-500 hover:text-white transition-all" data-filter="webapp">Web App</button>
+                <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-brand-500 hover:text-white transition-all" data-filter="game">Game</button>
+                <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-brand-500 hover:text-white transition-all" data-filter="design">Design</button>
+            </div>
+
+            <!-- Works Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Card 1 (Web App) -->
+                <div class="work-card group bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/50 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer" 
+                     data-category="webapp"
+                     onclick="openModal('インタラクティブマップアプリ', 'Python/FoliumやJavaScriptを使用して作成した地域マップAPI連携アプリ。データビジュアライゼーションの学習として構築。', ['Python', 'Leaflet.js', 'API'], '#')">
+                    <div class="h-48 bg-gradient-to-br from-blue-400 to-indigo-600 flex items-center justify-center text-white relative overflow-hidden">
+                        <i data-lucide="map-pin" class="w-16 h-16 opacity-80 group-hover:scale-110 transition-transform duration-300"></i>
+                        <span class="absolute top-3 right-3 bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-full text-xs font-semibold">Web App</span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="text-xl font-bold group-hover:text-brand-500 transition-colors">インタラクティブマップアプリ</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 line-clamp-2">オープンデータと連携した地理情報可視化Webアプリケーション。</p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded">Python</span>
+                            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded">Leaflet</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 (Game) -->
+                <div class="work-card group bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/50 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer" 
+                     data-category="game"
+                     onclick="openModal('ブラウザカードゲーム', 'JavaScriptで作られたシンプルな対戦型カードゲーム。CSSアニメーションとDOM操作を組み合わせた動作が特徴です。', ['JavaScript', 'HTML5', 'CSS3'], '#')">
+                    <div class="h-48 bg-gradient-to-br from-emerald-400 to-teal-600 flex items-center justify-center text-white relative overflow-hidden">
+                        <i data-lucide="gamepad-2" class="w-16 h-16 opacity-80 group-hover:scale-110 transition-transform duration-300"></i>
+                        <span class="absolute top-3 right-3 bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-full text-xs font-semibold">Game</span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="text-xl font-bold group-hover:text-brand-500 transition-colors">ブラウザカードゲーム</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 line-clamp-2">JavaScriptのロジック構築を学ぶために自作した対戦カードゲーム。</p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded">JavaScript</span>
+                            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded">Tailwind</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 (Design) -->
+                <div class="work-card group bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/50 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer" 
+                     data-category="design"
+                     onclick="openModal('グラフィック＆チラシデザイン', '地域活動やイベント告知用にCanva等を用いて作成したグラフィックデザイン。視認性の高さを追求しました。', ['Canva', 'Design', 'Branding'], '#')">
+                    <div class="h-48 bg-gradient-to-br from-orange-400 to-pink-500 flex items-center justify-center text-white relative overflow-hidden">
+                        <i data-lucide="image" class="w-16 h-16 opacity-80 group-hover:scale-110 transition-transform duration-300"></i>
+                        <span class="absolute top-3 right-3 bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-full text-xs font-semibold">Design</span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="text-xl font-bold group-hover:text-brand-500 transition-colors">グラフィック＆チラシデザイン</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 line-clamp-2">イベント告知ポスターやLINEスタンプ等の制作・デザイン実績。</p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded">Graphic</span>
+                            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded">Canva</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="bg-white dark:bg-slate-800 rounded-3xl p-8 sm:p-12 border border-slate-100 dark:border-slate-700/50 text-center space-y-6 shadow-sm">
+            <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Get In Touch</h2>
+            <p class="text-slate-600 dark:text-slate-400 max-w-xl mx-auto">
+                質問や制作のご相談、コラボレーションなど、お気軽にご連絡ください。
+            </p>
+            <div class="flex justify-center gap-4 pt-2">
+                <a href="mailto:example@example.com" class="px-6 py-3 rounded-lg bg-brand-500 hover:bg-brand-600 text-white font-medium transition-colors inline-flex items-center gap-2">
+                    <i data-lucide="mail" class="w-4 h-4"></i> メールを送る
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-8 text-center text-sm text-slate-500">
+        <p>&copy; 2026 DevPortfolio. Hosted on GitHub Pages.</p>
+    </footer>
+
+    <!-- Work Detail Modal Component -->
+    <div id="modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white dark:bg-slate-800 rounded-2xl max-w-lg w-full p-6 space-y-6 shadow-2xl border border-slate-100 dark:border-slate-700 relative transform scale-95 transition-transform duration-300" id="modal-content">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <h3 id="modal-title" class="text-2xl font-bold text-slate-900 dark:text-white">作品タイトル</h3>
+            <p id="modal-description" class="text-slate-600 dark:text-slate-400 leading-relaxed">作品の詳細説明がここに入ります。</p>
+            <div>
+                <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">使用技術 / タグ</div>
+                <div id="modal-tags" class="flex flex-wrap gap-2"></div>
+            </div>
+            <div class="pt-4 border-t border-slate-100 dark:border-slate-700 flex justify-end gap-3">
+                <button onclick="closeModal()" class="px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 text-sm font-medium">閉じる</button>
+                <a id="modal-link" href="#" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg bg-brand-500 hover:bg-brand-600 text-white text-sm font-medium inline-flex items-center gap-1.5">
+                    開く <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Dark Mode Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            lightIcon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            darkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            darkIcon.classList.toggle('hidden');
+            lightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+
+        // Filter Logic for Works
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const workCards = document.querySelectorAll('.work-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                workCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Modal Logic
+        const modal = document.getElementById('modal');
+        const modalContent = document.getElementById('modal-content');
+
+        function openModal(title, description, tags, link) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-description').innerText = description;
+            
+            const tagsContainer = document.getElementById('modal-tags');
+            tagsContainer.innerHTML = '';
+            tags.forEach(tag => {
+                const span = document.createElement('span');
+                span.className = 'px-2.5 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-medium rounded-full';
+                span.innerText = tag;
+                tagsContainer.appendChild(span);
+            });
+
+            document.getElementById('modal-link').href = link;
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalContent.classList.remove('scale-95');
+                modalContent.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            modal.classList.add('opacity-0');
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+    </script>
+</body>
+</html>
